@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Art: Office Culture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Hidden content behind the door -->
+    <div id="office-room-content" class="office-room-content">
+      <!-- chair -->
+      <div class="chair">
+        <div class="chair-base"></div>
+        <div class="chair-seat"></div>
+        <div class="chair-backrest"></div>
+        <div class="chair-headrest"></div>
+        <div class="chair-armrests">
+          <div class="armrest left"></div>
+          <div class="armrest right"></div>
+        </div>
+      </div>
+
+      <!-- Office Desk -->
+      <div class="office-desk">
+        <div class="front right-leg"></div>
+        <div class="front left-leg"></div>
+        <div class="back right-leg"></div>
+        <div class="back left-leg"></div>
+      </div>
+
+      <!-- Two Monitor (portrait and Landscape) -->
+      <div class="monitors">
+        <div class="portrait-monitor"></div>
+        <div class="landscape-monitor"></div>
+        <div class="monitor-arm"></div>
+      </div>
+
+      <!-- Laptop -->
+      <div class="laptop">
+        <div class="laptop-opened"></div>
+        <div class="cooling-fan-stand"></div>
+      </div>
+
+      <!-- Two Speaker -->
+      <div class="speakers">
+        <div class="right-speaker speaker"></div>
+        <div class="left-speaker speaker"></div>
+      </div>
+
+      <!-- Lavender plant -->
+      <div class="lavender-plant">
+        <div class="pot"></div>
+        <div class="stems">
+          <div class="stem stem1"></div>
+          <div class="stem stem2"></div>
+          <div class="stem stem3"></div>
+        </div>
+        <div class="leaves">
+          <div class="leaf leaf1"></div>
+          <div class="leaf leaf2"></div>
+          <div class="leaf leaf3"></div>
+          <div class="leaf leaf4"></div>
+          <div class="leaf leaf5"></div>
+        </div>
+      </div>
+      <!-- <button onclick="showDoor()">Exit Office</button> -->
+    </div>
+
+    <!-- office door -->
+    <div id="office-door" class="door-frame">
+      <div class="door-hinge-top door-hinge"></div>
+      <div class="door-hinge-bottom door-hinge"></div>
+      <div class="door-knob" onclick="openDoor()"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,488 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    height: 98vh;
+    border: 1px solid #999;
+    overflow: hidden;
+}
+
+/* Hidden content behind the door */
+.office-room-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ddd3cb 0%, #ddac43 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+
+.office-room-content.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Gaming Chair */
+.chair {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.chair-base {
+    width: 120px;
+    height: 30px;
+    background-color: #111;
+    border-radius: 50%;
+    position: relative;
+    bottom: 0;
+}
+
+.chair-base::before {
+    content: '';
+    width: 18px;
+    height: 150px;
+    background-color: #222;
+    position: absolute;
+    left: 50%;
+    top: -60px;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+.chair-base::after {
+    content: '';
+    width: 3px;
+    height: 25px;
+    background-color: #333;
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow:
+        25px 0 0 #333,
+        -25px 0 0 #333,
+        12px 22px 0 #333,
+        -12px 22px 0 #333;
+}
+
+.chair-seat {
+    width: 130px;
+    height: 90px;
+    background-color: #222;
+    border: 2px solid #111;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.chair-backrest {
+    width: 100px;
+    height: 160px;
+    background-color: #222;
+    border: 2px solid #111;
+    border-radius: 15px 15px 5px 5px;
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.chair-headrest {
+    width: 65px;
+    height: 30px;
+    background-color: #222;
+    border: 2px solid #111;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 195px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.chair-armrests {
+    position: absolute;
+    bottom: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.armrest {
+    width: 20px;
+    height: 70px;
+    background-color: #222;
+    border: 2px solid #111;
+    border-radius: 8px;
+    position: absolute;
+}
+
+.armrest.left {
+    left: -60px;
+}
+
+.armrest.right {
+    right: -60px;
+}
+
+/* Office Desk Art */
+.office-desk {
+    width: 45%;
+    height: 16px;
+    background-color: #4b380c;
+}
+
+.front {
+    width: 0.8%;
+    height: 28%;
+    background-color: #4b380c;
+    position: absolute;
+}
+
+.front.right-leg {
+    left: 72%;
+}
+
+.back {
+    width: 0.8%;
+    height: 26%;
+    background-color: #4b380c;
+    position: absolute;
+    left: 28%;
+}
+
+.back.right-leg {
+    left: 71.4%;
+}
+
+/* Monitors */
+.monitors {
+    position: absolute;
+    left: 55%;
+    padding-bottom: 30px;
+}
+
+.monitor-arm {
+    width: 8px;
+    height: 150px;
+    background-color: #666;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -120px;
+}
+
+.monitor-arm::before {
+    content: '';
+    width: 250px;
+    height: 8px;
+    background-color: #666;
+    position: absolute;
+    top: 30px;
+    left: -121px;
+}
+
+.portrait-monitor {
+    width: 100px;
+    height: 140px;
+    background-color: #222;
+    border: 6px solid #333;
+    position: absolute;
+    top: -150px;
+    left: 10px;
+}
+
+.landscape-monitor {
+    width: 140px;
+    height: 100px;
+    background-color: #222;
+    border: 6px solid #333;
+    position: absolute;
+    top: -150px;
+    right: 10px;
+}
+
+/* Laptop - positioned on left side of table */
+.laptop {
+    position: absolute;
+    left: 35%;
+    padding-bottom: 90px;
+}
+
+.cooling-fan-stand {
+    width: 120px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 5px;
+    position: relative;
+}
+
+.cooling-fan-stand::before {
+    content: '';
+    width: 100px;
+    height: 3px;
+    background-color: #555;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+
+.laptop-opened {
+    position: relative;
+    width: 100px;
+    height: 70px;
+}
+
+.laptop-opened::after {
+    content: '';
+    width: 100px;
+    height: 70px;
+    background-color: #444;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid #222;
+    border-radius: 5px;
+}
+
+/* Two speakers */
+.speakers {
+    position: absolute;
+    display: flex;
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+.speaker {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #555, #222);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.speaker {
+    transform: translate3d();
+}
+
+.office-room-content button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #fff;
+    color: #667eea;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.2s ease;
+}
+
+.office-room-content button:hover {
+    transform: scale(1.05);
+}
+
+.door-frame {
+    width: 25%;
+    height: 80%;
+    background-color: #977429;
+    border: 10px solid rgba(233, 5, 5, 0.151);
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+    transition: opacity 0.5s ease;
+}
+
+.door-frame.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.door-hinge {
+    width: 3%;
+    height: 10%;
+    border-radius: 30%;
+    background: repeating-linear-gradient(#947227, #4b380c 20%);
+}
+
+.door-hinge-top {
+    margin-top: 60px;
+}
+
+.door-hinge-bottom {
+    margin-bottom: 60px;
+}
+
+.door-knob {
+    width: 50px;
+    height: 30px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 20%;
+    cursor: pointer;
+}
+
+.door-knob:active {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Lavender Plant */
+.lavender-plant {
+    position: absolute;
+    left: 29%;
+    bottom: 49.6%;
+    transform: scale(0.6);
+}
+
+.pot {
+    width: 50px;
+    height: 50px;
+    background-color: #8B4513;
+    border-radius: 5px;
+    position: relative;
+    border: 2px solid #654321;
+}
+
+.pot::before {
+    content: '';
+    width: 54px;
+    height: 6px;
+    background-color: #654321;
+    position: absolute;
+    top: -3px;
+    left: -2px;
+    border-radius: 3px;
+}
+
+.stems {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.stem {
+    width: 2px;
+    height: 50px;
+    background-color: #228B22;
+    position: absolute;
+    bottom: 0;
+}
+
+.stem1 {
+    left: -8px;
+    transform: rotate(-5deg);
+}
+
+.stem2 {
+    left: 0;
+}
+
+.stem3 {
+    left: 8px;
+    transform: rotate(5deg);
+}
+
+.flowers {
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.flower {
+    width: 8px;
+    height: 20px;
+    background: linear-gradient(180deg, #9370DB 0%, #8A2BE2 50%, #6A5ACD 100%);
+    border-radius: 4px 4px 0 0;
+    position: absolute;
+    bottom: 0;
+}
+
+.flower1 {
+    left: -12px;
+    transform: rotate(-5deg);
+}
+
+.flower2 {
+    left: -4px;
+    height: 25px;
+}
+
+.flower3 {
+    left: 4px;
+    transform: rotate(5deg);
+}
+
+.leaves {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.leaf {
+    width: 12px;
+    height: 8px;
+    background-color: #228B22;
+    border-radius: 0 100% 0 100%;
+    position: absolute;
+}
+
+.leaf1 {
+    left: -15px;
+    bottom: 10px;
+    transform: rotate(-45deg);
+}
+
+.leaf2 {
+    left: -8px;
+    bottom: 20px;
+    transform: rotate(-20deg);
+}
+
+.leaf3 {
+    left: 0;
+    bottom: 15px;
+}
+
+.leaf4 {
+    left: 8px;
+    bottom: 25px;
+    transform: rotate(20deg);
+}
+
+.leaf5 {
+    left: 12px;
+    bottom: 8px;
+    transform: rotate(45deg);
+}
